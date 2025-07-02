@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="Rabbyte - Dự án Laptop Store" />
     <meta name="author" content="Rabbyte" />
-    <title>Product</title>
+    <title>User's information</title>
     <link href="/css/styles.css" rel="stylesheet" />
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
 </head>
@@ -26,10 +26,28 @@
                 <h1 class="mt-4">Dashboard</h1>
                 <ol class="breadcrumb mb-4">
                     <li class="breadcrumb-item active"><a href="/admin">Dashboard</a></li>
-                    <li class="breadcrumb-item active">Products</li>
+                    <li class="breadcrumb-item active"><a href="/admin/users">Users</a></li>
+                    <li class="breadcrumb-item active">Detail</li>
                 </ol>
-                <div>
-                    Product
+                <div class="container mt-5">
+                    <div class="row">
+                        <div class="col-12 mx-auto">
+                            <div>
+                                <h3>Table detail</h3>
+                            </div>
+                            <hr />
+                            <div class="card" style="width: 60%">
+                                <div class="card-header"><b>User information</b></div>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">ID: ${user.id}</li>
+                                    <li class="list-group-item">Email: ${user.email}</li>
+                                    <li class="list-group-item">Full Name: ${user.fullName}</li>
+                                    <li class="list-group-item">Address: ${user.address}</li>
+                                </ul>
+                            </div>
+                            <a href="/admin/user" class="btn btn-primary mt-3 px-3">Back</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </main>
