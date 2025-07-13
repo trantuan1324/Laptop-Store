@@ -11,9 +11,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="Rabbyte - Dự án Laptop Store" />
     <meta name="author" content="Rabbyte" />
-    <title>Product</title>
+    <title>Update user</title>
     <link href="/css/styles.css" rel="stylesheet" />
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(() => {
+            const avatarFile = $("#avatarFile");
+            avatarFile.change(function (e) {
+                const imgURL = URL.createObjectURL(e.target.files[0]);
+                $("#avatarPreview").attr("src", imgURL).css({"display": "block"});
+                $("#currentAvatar").css({"display": "none"});
+            });
+        });
+    </script>
 </head>
 
 <body class="sb-nav-fixed">
@@ -27,40 +38,61 @@
                 <ol class="breadcrumb mb-4">
                     <li class="breadcrumb-item active"><a href="/admin">Dashboard</a></li>
                     <li class="breadcrumb-item active"><a href="/admin/users">Users</a></li>
-                    <li class="breadcrumb-item active">Create</li>
+                    <li class="breadcrumb-item active">Update</li>
                 </ol>
                 <div class="container mt-5">
                     <div class="row">
                         <div class="col-md-6 col-12 mx-auto">
                             <h1 class="label">Update user</h1>
                             <hr />
-                            <form:form
-                                    method="post"
-                                    action="/admin/users/update"
-                                    modelAttribute="newUser"
-                            >
-                                <div class="mb-3" style="display: none;">
-                                    <label class="form-label">ID</label>
-                                    <form:input type="number" class="form-control" path="id" />
+                            <form:form method="post" enctype="multipart/form-data" action="/admin/users/update" modelAttribute="selectedUser" class="row g-3">
+                                <div class="col-12 col-md-6" style="display: none">
+                                    <label for="inputEmail4" class="form-label">ID</label>
+                                    <form:input type="number" class="form-control" path="id"/>
                                 </div>
-                                <div class="mb-3">
-                                    <label for="exampleInputEmail" class="form-label">Email address</label>
+                                <div class="col-12 col-md-6">
+                                    <label for="inputEmail4" class="form-label">Email</label>
                                     <form:input type="email" class="form-control" path="email" disabled="true"/>
                                 </div>
-                                <div class="mb-3">
-                                    <label for="phoneNumber" class="form-label">Phone number</label>
-                                    <form:input type="text" class="form-control" path="phone" />
+                                <div class="col-12 col-md-6">
+                                    <label for="inputPassword4" class="form-label">Password</label>
+                                    <form:input type="password" class="form-control" path="password"/>
                                 </div>
-                                <div class="mb-3">
-                                    <label for="fullName" class="form-label">Full Name</label>
-                                    <form:input type="text" class="form-control" path="fullName" />
+                                <div class="col-12 col-md-6">
+                                    <label for="inputPhoneNumber" class="form-label">Phone number</label>
+                                    <form:input type="text" class="form-control" path="phone"/>
                                 </div>
-                                <div class="mb-3">
-                                    <label for="address" class="form-label">Address</label>
-                                    <form:input type="text" class="form-control" path="address" />
+                                <div class="col-12 col-md-6">
+                                    <c:set var="fullNameError">
+                                        <form:errors path="fullName" cssClass="invalid-feedback"/>
+                                    </c:set>
+                                    <label for="inputFullName" class="form-label">Full name</label>
+                                    <form:input type="text" class="form-control ${not empty fullNameError ? 'is-invalid' : ''}" path="fullName"/>
+                                        ${fullNameError}
                                 </div>
-                                <a href="/admin/user" class="btn btn-primary">Cancel</a>
-                                <button type="submit" class="btn btn-warning mx-4">Update</button>
+                                <div class="col-12 col">
+                                    <label for="inputAddress" class="form-label">Address</label>
+                                    <form:input type="text" class="form-control" path="address"/>
+                                </div>
+                                <div class="col-12 col-md-4">
+                                    <label for="inputState" class="form-label">Role</label>
+                                    <form:select id="inputState" class="form-select" path="role.name">
+                                        <option selected>Choose...</option>
+                                        <form:option value="ADMIN">ADMIN</form:option>
+                                        <form:option value="USER">USER</form:option>
+                                    </form:select>
+                                </div>
+                                <div class="col-12 col-md-8">
+                                    <label for="avatarFile" class="form-label">Choose profile picture</label>
+                                    <input class="form-control" type="file" id="avatarFile" name="avatarImage" accept=".png, .jpg, .jpeg">
+                                </div>
+                                <div class="col-12">
+                                    <img style="max-height: 250px; display: none;" alt="chosen avatar" id="avatarPreview"/>
+                                    <img style="max-height: 250px; display: block;" alt="chosen avatar" id="currentAvatar" src="http://localhost:8085/images/avatar/${selectedUser.avatar}"/>
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn-primary">Update</button>
+                                </div>
                             </form:form>
                         </div>
                     </div>

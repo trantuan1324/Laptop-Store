@@ -40,11 +40,11 @@
                                 Do you want to delete this user?
                             </div>
                             <div class="d-flex">
-                                <a href="/admin/user" class="btn btn-primary mt-3 px-3">Cancel</a>
+                                <a href="/admin/users" class="btn btn-primary mt-3 px-3">Cancel</a>
                                 <form:form
                                         method="post"
                                         modelAttribute="selectedUser"
-                                        action="/admin/user/delete"
+                                        action="/admin/users/delete"
                                 >
                                     <div class="mb-3" style="display: none">
                                         <label class="form-label">ID</label>

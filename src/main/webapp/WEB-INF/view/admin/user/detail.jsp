@@ -36,16 +36,19 @@
                                 <h3>Table detail</h3>
                             </div>
                             <hr />
+                            <img src="http://localhost:8085/images/avatar/${selectedUser.avatar}" style="max-height: 250px; object-fit: contain"  alt="User avatar">
                             <div class="card" style="width: 60%">
                                 <div class="card-header"><b>User information</b></div>
                                 <ul class="list-group list-group-flush">
-                                    <li class="list-group-item">ID: ${user.id}</li>
-                                    <li class="list-group-item">Email: ${user.email}</li>
-                                    <li class="list-group-item">Full Name: ${user.fullName}</li>
-                                    <li class="list-group-item">Address: ${user.address}</li>
+                                    <li class="list-group-item">ID: ${selectedUser.id}</li>
+                                    <li class="list-group-item">Email: ${selectedUser.email}</li>
+                                    <li class="list-group-item">Full Name: ${selectedUser.fullName}</li>
+                                    <li class="list-group-item">Full Name: ${selectedUser.phone}</li>
+                                    <li class="list-group-item">Role: ${selectedUser.role.name}</li>
+                                    <li class="list-group-item">Address: ${selectedUser.address}</li>
                                 </ul>
                             </div>
-                            <a href="/admin/user" class="btn btn-primary mt-3 px-3">Back</a>
+                            <a href="/admin/users" class="btn btn-primary mt-3 px-3">Back</a>
                         </div>
                     </div>
                 </div>

@@ -45,22 +45,35 @@
                         <div class="col-md-6 col-12 mx-auto">
                             <h1 class="label">Create a new user</h1>
                             <hr>
+                            <%--@elvariable id="newUser" type="com.rabbyte.LaptopStore.domain.User"--%>
                             <form:form method="post" enctype="multipart/form-data" action="/admin/users/create" modelAttribute="newUser" class="row g-3">
                                 <div class="col-12 col-md-6">
+                                    <c:set var="emailError">
+                                        <form:errors path="email" cssClass="invalid-feedback"/>
+                                    </c:set>
                                     <label for="inputEmail4" class="form-label">Email</label>
-                                    <form:input type="email" class="form-control" path="email"/>
+                                    <form:input type="email" class="form-control ${not empty emailError ? 'is-invalid' : ''}" path="email"/>
+                                    ${emailError}
                                 </div>
                                 <div class="col-12 col-md-6">
+                                    <c:set var="passwordError">
+                                        <form:errors path="password" cssClass="invalid-feedback"/>
+                                    </c:set>
                                     <label for="inputPassword4" class="form-label">Password</label>
-                                    <form:input type="password" class="form-control" path="password"/>
+                                    <form:input type="password" class="form-control ${not empty passwordError ? 'is-invalid' : ''}" path="password"/>
+                                    ${passwordError}
                                 </div>
                                 <div class="col-12 col-md-6">
                                     <label for="inputPhoneNumber" class="form-label">Phone number</label>
                                     <form:input type="text" class="form-control" path="phone"/>
                                 </div>
                                 <div class="col-12 col-md-6">
+                                    <c:set var="fullNameError">
+                                        <form:errors path="fullName" cssClass="invalid-feedback"/>
+                                    </c:set>
                                     <label for="inputFullName" class="form-label">Full name</label>
-                                    <form:input type="text" class="form-control" path="fullName"/>
+                                    <form:input type="text" class="form-control ${not empty fullNameError ? 'is-invalid' : ''}" path="fullName"/>
+                                    ${fullNameError}
                                 </div>
                                 <div class="col-12">
                                     <label for="inputAddress" class="form-label">Address</label>
@@ -81,7 +94,7 @@
                                 <div class="col-12">
                                     <img style="max-height: 250px; display: none;" alt="chosen avatar" id="avatarPreview"/>
                                 </div>
-                                <div class="col-12">
+                                    <div class="col-12">
                                     <button type="submit" class="btn btn-primary">Create a new user</button>
                                 </div>
                             </form:form>

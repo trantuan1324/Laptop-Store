@@ -34,7 +34,7 @@
                             <div class="d-flex justify-content-between">
                                 <h3>Table users</h3>
                                 <a href="users/create" class="btn btn-primary text-center"
-                                >Create a list</a>
+                                >Create a new user</a>
                             </div>
 
                             <hr />
@@ -44,6 +44,7 @@
                                     <th scope="col">ID</th>
                                     <th scope="col">Email</th>
                                     <th scope="col">Full Name</th>
+                                    <th scope="col">Role</th>
                                     <th scope="col">Action</th>
                                 </tr>
                                 </thead>
@@ -53,6 +54,7 @@
                                         <td>${user.id}</td>
                                         <td>${user.email}</td>
                                         <td>${user.fullName}</td>
+                                        <td>${user.role.name}</td>
                                         <td>
                                             <a href="/admin/users/${user.id}" class="btn btn-success">View</a>
                                             <a href="/admin/users/update/${user.id}" class="btn btn-warning">Update</a>
