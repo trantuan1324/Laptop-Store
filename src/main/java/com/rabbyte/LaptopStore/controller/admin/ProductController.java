@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
-
 import java.util.List;
 
 @Controller
@@ -27,7 +26,9 @@ public class ProductController {
     }
 
     @GetMapping("/admin/products")
-    public String getDashboard() {
+    public String getDashboard(Model model) {
+        List<Product> products = this.productService.handleGetAllProducts();
+        model.addAttribute("products", products);
         return "admin/product/show";
     }
 
@@ -53,6 +54,7 @@ public class ProductController {
         newProduct.setImage(image);
 
         this.productService.handleCreateProduct(newProduct);
+
         return "redirect:/admin/products";
     }
 }
