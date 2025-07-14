@@ -46,7 +46,7 @@
                             <h1 class="label">Create a new product</h1>
                             <hr>
                             <%--@elvariable id="newProduct" type="com.rabbyte.LaptopStore.domain.Product"--%>
-                            <form:form method="post" enctype="multipart/form-data" action="/admin/products/create" modelAttribute="newProduct" class="row g-3">
+                            <form:form method="post" enctype="multipart/form-data" action="/admin/products/update" modelAttribute="newProduct" class="row g-3">
                                 <div class="col-12 col-md-6">
                                     <c:set var="nameError">
                                         <form:errors path="name" cssClass="invalid-feedback"/>
@@ -110,7 +110,8 @@
                                     <img style="max-height: 250px; display: none;" alt="chosen avatar" id="avatarPreview"/>
                                 </div>
                                 <div class="col-12">
-                                    <button type="submit" class="btn btn-primary">Create a new product</button>
+                                    <button type="submit" class="btn btn-primary me-3">Create</button>
+                                    <a href="${pageContext.request.contextPath}/admin/products" type="button" class="btn btn-warning">Cancel</a>
                                 </div>
                             </form:form>
                         </div>

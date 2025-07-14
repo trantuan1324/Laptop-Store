@@ -35,6 +35,7 @@ public class ProductService {
 
         if (data.isPresent()) {
             product = data.get();
+            product.setImage(updatedProduct.getImage());
             product.setName(updatedProduct.getName());
             product.setFactory(updatedProduct.getFactory());
             product.setPrice(updatedProduct.getPrice());

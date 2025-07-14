@@ -12,7 +12,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-
 import java.util.List;
 import java.util.Optional;
 
@@ -23,7 +22,7 @@ public class UserController {
     private final UploadService uploadService;
     private final PasswordEncoder passwordEncoder;
 
-    public UserController(UserService userService, UploadService uploadService,  PasswordEncoder passwordEncoder) {
+    public UserController(UserService userService, UploadService uploadService, PasswordEncoder passwordEncoder) {
         this.userService = userService;
         this.uploadService = uploadService;
         this.passwordEncoder = passwordEncoder;
@@ -97,6 +96,7 @@ public class UserController {
         updatedUser.setAvatar(avatar);
         updatedUser.setPassword(hashPassword);
         updatedUser.setRole(newRole);
+
         data.ifPresent(user -> this.userService.handleUpdateUser(user.getId(), updatedUser));
         return "redirect:/admin/users";
     }

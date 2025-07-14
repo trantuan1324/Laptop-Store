@@ -94,8 +94,9 @@
                                 <div class="col-12">
                                     <img style="max-height: 250px; display: none;" alt="chosen avatar" id="avatarPreview"/>
                                 </div>
-                                    <div class="col-12">
-                                    <button type="submit" class="btn btn-primary">Create a new user</button>
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn-primary me-3">Create</button>
+                                    <a href="${pageContext.request.contextPath}/admin/users" class="btn btn-warning">Cancel</a>
                                 </div>
                             </form:form>
                         </div>

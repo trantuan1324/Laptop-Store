@@ -92,7 +92,8 @@
                                     <img style="max-height: 250px; display: block;" alt="chosen avatar" id="currentAvatar" src="http://localhost:8080/images/avatar/${selectedUser.avatar}"/>
                                 </div>
                                 <div class="col-12">
-                                    <button type="submit" class="btn btn-primary">Update</button>
+                                    <button type="submit" class="btn btn-primary me-3">Update</button>
+                                    <a href="${pageContext.request.contextPath}/admin/users" class="btn btn-warning">Cancel</a>
                                 </div>
                             </form:form>
                         </div>
