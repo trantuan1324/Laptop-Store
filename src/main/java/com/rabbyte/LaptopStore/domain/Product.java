@@ -2,6 +2,8 @@ package com.rabbyte.LaptopStore.domain;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 import java.util.List;
@@ -20,7 +22,12 @@ public class Product {
     private double price;
 
     private String image;
+
+    @NotNull
+    @NotEmpty(message = "detailDesc không được để trống")
+    @Column(columnDefinition = "MEDIUMTEXT")
     private String detailDesc;
+
     private String shortDesc;
 
     @Min(value = 0, message = "Quantity must be equal or greater than 0")

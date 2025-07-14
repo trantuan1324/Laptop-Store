@@ -16,6 +16,7 @@ import java.util.Optional;
 
 @Controller
 public class ProductController {
+
     private final UploadService uploadService;
     private final ProductService productService;
 
@@ -104,7 +105,7 @@ public class ProductController {
     }
 
     @PostMapping("/admin/products/delete")
-    public String deleteProduct(@ModelAttribute("deletedProduct") Product deletedProduct, BindingResult bindingResult) {
+    public String deleteProduct(@ModelAttribute("deletedProduct") Product deletedProduct) {
         this.productService.handleDeleteProduct(deletedProduct.getId());
 
         return "redirect:/admin/products";

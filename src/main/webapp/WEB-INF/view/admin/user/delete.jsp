@@ -40,7 +40,7 @@
                                 Do you want to delete this user?
                             </div>
                             <div class="d-flex">
-                                <a href="/admin/users" class="btn btn-primary mt-3 px-3">Cancel</a>
+                                <a href="${pageContext.request.contextPath}/admin/users" class="btn btn-primary mt-3 px-3">Cancel</a>
                                 <%--@elvariable id="selectedUser" type="com.rabbyte.LaptopStore.domain.User"--%>
                                 <form:form
                                         method="post"
