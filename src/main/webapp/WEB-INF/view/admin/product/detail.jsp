@@ -26,29 +26,31 @@
                 <h1 class="mt-4">Dashboard</h1>
                 <ol class="breadcrumb mb-4">
                     <li class="breadcrumb-item active"><a href="/admin">Dashboard</a></li>
-                    <li class="breadcrumb-item active"><a href="/admin/users">Users</a></li>
+                    <li class="breadcrumb-item active"><a href="/admin/products">Products</a></li>
                     <li class="breadcrumb-item active">Detail</li>
                 </ol>
                 <div class="container mt-5">
                     <div class="row">
                         <div class="col-12 mx-auto">
                             <div>
-                                <h3>Table detail</h3>
+                                <h3>Table Details</h3>
                             </div>
                             <hr />
-                            <img src="http://localhost:8080/images/avatar/${selectedUser.avatar}" style="max-height: 250px; object-fit: contain"  alt="User avatar">
+                            <img src="http://localhost:8080/images/product/${selectedProduct.image}" style="max-height: 250px; object-fit: contain"  alt="Product image">
                             <div class="card" style="width: 60%">
-                                <div class="card-header"><b>User information</b></div>
+                                <div class="card-header"><b>Product information</b></div>
                                 <ul class="list-group list-group-flush">
-                                    <li class="list-group-item">ID: ${selectedUser.id}</li>
-                                    <li class="list-group-item">Email: ${selectedUser.email}</li>
-                                    <li class="list-group-item">Full Name: ${selectedUser.fullName}</li>
-                                    <li class="list-group-item">Full Name: ${selectedUser.phone}</li>
-                                    <li class="list-group-item">Role: ${selectedUser.role.name}</li>
-                                    <li class="list-group-item">Address: ${selectedUser.address}</li>
+                                    <li class="list-group-item">ID: ${selectedProduct.id}</li>
+                                    <li class="list-group-item">Name: ${selectedProduct.name}</li>
+                                    <li class="list-group-item">Price: ${selectedProduct.price}</li>
+                                    <li class="list-group-item">Detail Desc: ${selectedProduct.detailDesc}</li>
+                                    <li class="list-group-item">Short Desc: ${selectedProduct.shortDesc}</li>
+                                    <li class="list-group-item">Quantity: ${selectedProduct.quantity}</li>
+                                    <li class="list-group-item">Factory: ${selectedProduct.factory}</li>
+                                    <li class="list-group-item">Target: ${selectedProduct.target}</li>
                                 </ul>
                             </div>
-                            <a href="/admin/users" class="btn btn-primary mt-3 px-3">Back</a>
+                            <a href="/admin/products" class="btn btn-primary mt-3 px-3">Back</a>
                         </div>
                     </div>
                 </div>

@@ -1,6 +1,8 @@
 package com.rabbyte.LaptopStore.domain;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.Size;
 
 import java.util.List;
 
@@ -10,12 +12,21 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
+    @Size(min = 3, max = 255, message = "Name must be at least 3 symbols and 255 symbols at the most")
     private String name;
+
+    @Min(value = 0, message = "Price cannot be negative")
     private double price;
+
     private String image;
     private String detailDesc;
     private String shortDesc;
+
+    @Min(value = 0, message = "Quantity must be equal or greater than 0")
     private long quantity;
+
+    @Min(0)
     private long sold;
     private String factory;
     private String target;

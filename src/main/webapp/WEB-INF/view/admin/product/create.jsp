@@ -48,12 +48,20 @@
                             <%--@elvariable id="newProduct" type="com.rabbyte.LaptopStore.domain.Product"--%>
                             <form:form method="post" enctype="multipart/form-data" action="/admin/products/create" modelAttribute="newProduct" class="row g-3">
                                 <div class="col-12 col-md-6">
+                                    <c:set var="nameError">
+                                        <form:errors path="name" cssClass="invalid-feedback"/>
+                                    </c:set>
                                     <label for="inputName" class="form-label">Name</label>
-                                    <form:input type="text" class="form-control" path="name"/>
+                                    <form:input type="text" class="form-control ${not empty nameError ? 'is-invalid' : ''}" path="name"/>
+                                    ${nameError}
                                 </div>
                                 <div class="col-12 col-md-6">
-                                    <label for="inputPrice" class="form-label">Price</label>
+                                    <c:set var="priceError">
+                                        <form:errors path="price" cssClass="invalid-feedback"/>
+                                    </c:set>
+                                    <label for="inputPrice" class="form-label ${not empty priceError ? 'is-invalid' : ''}">Price</label>
                                     <form:input type="text" class="form-control" path="price"/>
+                                    ${priceError}
                                 </div>
                                 <div class="col-12">
                                     <label for="inputDetailDescription" class="form-label">Detail description</label>
@@ -64,8 +72,12 @@
                                     <form:input type="text" class="form-control" path="shortDesc"/>
                                 </div>
                                 <div class="col-12 col-md-6">
-                                    <label for="inputQuantity" class="form-label">Quantity</label>
+                                    <c:set var="quantityError">
+                                        <form:errors path="quantity" cssClass="invalid-feedback"/>
+                                    </c:set>
+                                    <label for="inputQuantity" class="form-label ${not empty nameError ? 'is-invalid' : ''}">Quantity</label>
                                     <form:input type="text" class="form-control" path="quantity"/>
+                                    ${quantityError}
                                 </div>
                                 <div class="col-12 col-md-6">
                                     <label for="inputFactory" class="form-label">Factory</label>

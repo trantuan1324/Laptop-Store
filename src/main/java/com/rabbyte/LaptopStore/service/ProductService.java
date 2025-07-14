@@ -43,5 +43,11 @@ public class ProductService {
             product.setShortDesc(updatedProduct.getShortDesc());
             product.setTarget(updatedProduct.getTarget());
         }
+
+        this.productRepository.save(product);
+    }
+
+    public void handleDeleteProduct(long id) {
+        this.productRepository.deleteById(id);
     }
 }

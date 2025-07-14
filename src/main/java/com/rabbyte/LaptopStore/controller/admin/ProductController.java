@@ -8,12 +8,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class ProductController {
@@ -56,5 +54,13 @@ public class ProductController {
         this.productService.handleCreateProduct(newProduct);
 
         return "redirect:/admin/products";
+    }
+
+    @GetMapping("/admin/products/{id}")
+    public String getProductDetails(@PathVariable Long id, Model model) {
+        Optional<Product> product = this.productService.handleGetProductById(id);
+        product.ifPresent(value -> model.addAttribute("selectedProduct", value));
+
+        return "admin/product/detail";
     }
 }

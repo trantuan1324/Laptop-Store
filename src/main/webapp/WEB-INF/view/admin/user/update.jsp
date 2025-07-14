@@ -45,6 +45,7 @@
                         <div class="col-md-6 col-12 mx-auto">
                             <h1 class="label">Update user</h1>
                             <hr />
+                            <%--@elvariable id="selectedUser" type="com.rabbyte.LaptopStore.domain.User"--%>
                             <form:form method="post" enctype="multipart/form-data" action="/admin/users/update" modelAttribute="selectedUser" class="row g-3">
                                 <div class="col-12 col-md-6" style="display: none">
                                     <label for="inputEmail4" class="form-label">ID</label>
@@ -88,7 +89,7 @@
                                 </div>
                                 <div class="col-12">
                                     <img style="max-height: 250px; display: none;" alt="chosen avatar" id="avatarPreview"/>
-                                    <img style="max-height: 250px; display: block;" alt="chosen avatar" id="currentAvatar" src="http://localhost:8085/images/avatar/${selectedUser.avatar}"/>
+                                    <img style="max-height: 250px; display: block;" alt="chosen avatar" id="currentAvatar" src="http://localhost:8080/images/avatar/${selectedUser.avatar}"/>
                                 </div>
                                 <div class="col-12">
                                     <button type="submit" class="btn btn-primary">Update</button>
