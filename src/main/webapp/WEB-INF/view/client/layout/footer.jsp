@@ -40,7 +40,7 @@
             <div class="row g-4">
                 <div class="col-lg-3">
                     <a href="#">
-                        <h1 class="text-primary mb-0">Laptop Store</h1>
+                        <h1 class="text-primary mb-0"><a href="${pageContext.request.contextPath}/">Laptop Store</a></h1>
                         <p class="text-secondary mb-0">Chuyên bán laptop</p>
                     </a>
                 </div>

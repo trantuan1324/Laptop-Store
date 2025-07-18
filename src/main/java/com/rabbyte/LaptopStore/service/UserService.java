@@ -2,6 +2,7 @@ package com.rabbyte.LaptopStore.service;
 
 import com.rabbyte.LaptopStore.domain.Role;
 import com.rabbyte.LaptopStore.domain.User;
+import com.rabbyte.LaptopStore.domain.dto.RegisterDTO;
 import com.rabbyte.LaptopStore.repository.RoleRepository;
 import com.rabbyte.LaptopStore.repository.UserRepository;
 import org.springframework.stereotype.Service;
@@ -55,5 +56,14 @@ public class UserService {
 
     public void handleDeleteUser(long id) {
         userRepository.deleteById(id);
+    }
+
+    public User mapperRegisterDTOtoUser(RegisterDTO registerDTO) {
+        User user = new User();
+
+        user.setFullName(registerDTO.getFirstName() + " " + registerDTO.getLastName());
+        user.setEmail(registerDTO.getEmail());
+        user.setPassword(registerDTO.getPassword());
+        return user;
     }
 }

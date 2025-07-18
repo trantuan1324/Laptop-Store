@@ -42,14 +42,14 @@
                 <small class="me-3"><i class="fas fa-envelope me-2 text-secondary"></i><a href="#" class="text-white">tranqt.work@gmail.com</a></small>
             </div>
             <div class="top-link pe-2">
-                <a href="#" class="text-white"><small class="text-white mx-2">Chính sách bảo mật</small>/</a>
-                <a href="#" class="text-white"><small class="text-white mx-2">Điều khoản người dùng</small></a>
+                <a href="${pageContext.request.contextPath}/login" class="text-white"><small class="text-white mx-2">Login</small>/</a>
+                <a href="${pageContext.request.contextPath}/register" class="text-white"><small class="text-white mx-2">Sign up</small></a>
             </div>
         </div>
     </div>
     <div class="container px-0">
         <nav class="navbar navbar-light bg-white navbar-expand-xl">
-            <a href="index.html" class="navbar-brand"><h1 class="text-primary display-6">Laptop Store</h1></a>
+            <a href="${pageContext.request.contextPath}/" class="navbar-brand"><h1 class="text-primary display-6">Laptop Store</h1></a>
             <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                 <span class="fa fa-bars text-primary"></span>
             </button>
