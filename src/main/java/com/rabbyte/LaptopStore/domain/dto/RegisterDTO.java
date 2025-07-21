@@ -1,5 +1,8 @@
 package com.rabbyte.LaptopStore.domain.dto;
 
+import com.rabbyte.LaptopStore.service.validator.RegisterChecked;
+
+@RegisterChecked
 public class RegisterDTO {
     private String firstName;
     private String lastName;

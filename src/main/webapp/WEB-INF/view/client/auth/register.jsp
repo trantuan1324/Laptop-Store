@@ -61,7 +61,7 @@
                                     </div>
                                     <div class="mt-4 mb-0">
                                         <div class="d-grid">
-                                            <form:button class="btn btn-primary btn-block" type="submit">Create Account</form:button>
+                                            <form:button class="btn btn-primary btn-blockpo" type="submit">Create Account</form:button>
                                         </div>
                                     </div>
                                 </form:form>

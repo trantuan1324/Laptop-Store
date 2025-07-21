@@ -2,6 +2,7 @@ package com.rabbyte.LaptopStore.domain;
 
 import java.util.List;
 
+import com.rabbyte.LaptopStore.service.validator.StrongPassword;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
@@ -21,7 +22,7 @@ public class User {
     private String email;
 
     @NotNull(message = "Password cannot be empty")
-    @Size(min = 6, message = "Password must be at least 6 symbols")
+    @StrongPassword
     private String password;
 
     @Size(min = 5, message = "Your name must be at least 6 symbols")
