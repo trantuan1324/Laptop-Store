@@ -25,6 +25,6 @@ public class ProductDetailController {
 
         product.ifPresent(value -> model.addAttribute("currentProduct", value));
 
-        return "/client/product/show-detail";
+        return "client/product/show-detail";
     }
 }

@@ -7,7 +7,6 @@ import com.rabbyte.LaptopStore.domain.dto.RegisterDTO;
 import com.rabbyte.LaptopStore.service.ProductService;
 import com.rabbyte.LaptopStore.service.UserService;
 import jakarta.validation.Valid;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -36,13 +35,13 @@ public class HomePageController {
     public String getHomePage(Model model) {
         List<Product> products = this.productService.handleGetAllProducts();
         model.addAttribute("products", products);
-        return "/client/home_page/show";
+        return "client/home_page/show";
     }
 
     @GetMapping("/register")
     public String getRegisterPage(Model model) {
         model.addAttribute("registerUser", new RegisterDTO());
-        return "/client/auth/register";
+        return "client/auth/register";
     }
 
     @PostMapping("/register")
@@ -72,6 +71,11 @@ public class HomePageController {
 
     @GetMapping("/login")
     public String getLoginPage() {
-        return "/client/auth/login";
+        return "client/auth/login";
+    }
+
+    @PostMapping("/login")
+    public String loginUser() {
+        return "redirect:/";
     }
 }

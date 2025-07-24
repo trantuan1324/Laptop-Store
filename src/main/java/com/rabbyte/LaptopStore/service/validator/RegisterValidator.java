@@ -1,10 +1,20 @@
 package com.rabbyte.LaptopStore.service.validator;
 
 import com.rabbyte.LaptopStore.domain.dto.RegisterDTO;
+import com.rabbyte.LaptopStore.service.UserService;
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
+import org.springframework.stereotype.Service;
 
+@Service
 public class RegisterValidator implements ConstraintValidator<RegisterChecked, RegisterDTO> {
+
+
+    private final UserService userService;
+
+    public RegisterValidator(UserService userService) {
+        this.userService = userService;
+    }
 
     @Override
     public boolean isValid(RegisterDTO user, ConstraintValidatorContext context) {
@@ -22,6 +32,14 @@ public class RegisterValidator implements ConstraintValidator<RegisterChecked, R
         }
 
         // Additional validations can be added here
+        // Check email if exists
+        if (this.userService.checkIfEmailExists(user.getEmail())) {
+            context.buildConstraintViolationWithTemplate("Email already exists")
+                    .addPropertyNode("email")
+                    .addConstraintViolation()
+                    .disableDefaultConstraintViolation();
+            valid = false;
+        }
 
         return valid;
     }
