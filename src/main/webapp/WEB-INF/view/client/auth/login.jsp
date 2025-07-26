@@ -26,6 +26,9 @@
                             <div class="card-header"><h3 class="text-center font-weight-light my-4">Login</h3></div>
                             <div class="card-body">
                                 <form method="post" action="${pageContext.request.contextPath}/login">
+                                    <c:if test="${param.logout != null}">
+                                        <div class="my-2" style="color: forestgreen;">Your account have been logout.</div>
+                                    </c:if>
                                     <div class="form-floating mb-3">
                                         <input class="form-control" id="inputEmail" type="email" placeholder="name@example.com" name="username"/>
                                         <label for="inputEmail">Email address</label>
